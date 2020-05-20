@@ -1,7 +1,7 @@
 require("luci.sys")
 require("luci.sys.zoneinfo")
 require("luci.tools.webadmin")
-require("luci.fs")
+--require("luci.fs")
 require("luci.config")
 
 m = Map("bearDropper", translate("bearDropper"), translate("bearDropper, 是一款能够在开启公网访问之后对潜在的ssh attack进行防御的脚本"))
