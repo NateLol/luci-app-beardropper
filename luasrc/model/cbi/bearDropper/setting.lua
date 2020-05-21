@@ -15,6 +15,7 @@ s.addremove = false
 
 -- TABS 
 s:tab("options", translate("运行选项"))
+s:tab("blocked", translate("屏蔽列表"))
 
 o = s:taboption("options", Flag, "enabled",translate("启用"))
 o.default = 0
@@ -45,5 +46,16 @@ local apply = luci.http.formvalue("cbi.apply")
 if apply then
     io.popen("/etc/init.d/bearDropper restart")
 end
+
+o = s:taboption("blocked", Value, "blocked", translate("已屏蔽IP列表"))
+o.template="cbi/tvalue"
+--o.rows=100
+o.wrap="off"
+o.readonly="true"
+function o.cfgvalue(e, e)
+	return luci.sys.exec("cat /tmp/bearDropper.bddb | awk /'=1/'| awk -F '=' '{print $1}' | awk '{print substr($0,6)}' | awk 'gsub(/_/,\":\",$0)'")
+end
+
+
 
 return m
