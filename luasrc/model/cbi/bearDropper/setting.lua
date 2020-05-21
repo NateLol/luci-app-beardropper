@@ -4,7 +4,9 @@ require("luci.tools.webadmin")
 --require("luci.fs")
 require("luci.config")
 
-m = Map("bearDropper", translate("bearDropper"), translate("bearDropper, 是一款能够在开启公网访问之后对潜在的ssh attack进行防御的脚本"))
+m = Map("bearDropper", translate("BearDropper"), 
+translate("luci-app-beardropper, the LuCI app built with the elegant firewall rule generation on-the-fly script bearDropper. <br /> <br /> Should you have any questions, please refer to the repo: ")..[[<a href="https://github.com/NateLol/luci-app-bearDropper" target="_blank">luci-app-beardropper</a>]]
+)
 m:chain("luci")
 
 m:section(SimpleSection).template="bearDropper/status"
@@ -14,40 +16,40 @@ s.anonymous = true
 s.addremove = false
 
 -- TABS 
-s:tab("options", translate("运行选项"))
-s:tab("blocked", translate("屏蔽列表"))
+s:tab("options", translate("Options"))
+s:tab("blocked", translate("Blocked IP"))
 
-o = s:taboption("options", Flag, "enabled",translate("启用"))
+o = s:taboption("options", Flag, "enabled",translate("Enabled"))
 o.default = 0
 
 -- OPTIONS
-o = s:taboption("options", ListValue, "defaultMode", translate("运行模式"))
+o = s:taboption("options", ListValue, "defaultMode", translate("Running Mode"))
 o.default = "follow"
-o:value("follow", translate("后台监控"))
-o:value("entire", translate("已有记录"))
-o:value("today", translate("仅今日"))
-o:value("wipe", translate("清除所有"))
+o:value("follow", translate("Follow"))
+o:value("entire", translate("Entire"))
+o:value("today", translate("Today"))
+o:value("wipe", translate("Wipe"))
 
 
-o = s:taboption("options", Value, "attemptCount", "最大尝试登录次数", "failure attempts from a given IP required to trigger a ban")
+o = s:taboption("options", Value, "attemptCount", translate("Attempt Tolerance"), translate("failure attempts from a given IP required to trigger a ban"))
 
-o = s:taboption("options", Value, "attemptPeriod", "尝试登录时间段", "time period during which attemptCount must be exceeded in order to trigger a ban")
+o = s:taboption("options", Value, "attemptPeriod", translate("Attempt Cycle"), translate("time period during which attemptCount must be exceeded in order to trigger a ban <br> Format: 1w2d3h4m5s represents 1week 2days 3hours 4minutes 5 seconds"))
 
-o = s:taboption("options", Value, "banLength", "封禁IP时长", "how long a ban exist once the attempt threshold is exceeded")
+o = s:taboption("options", Value, "banLength", translate("Ban Period"), translate("how long a ban exist once the attempt threshold is exceeded"))
 
-o = s:taboption("options", ListValue, "logLevel", "日志等级")
+o = s:taboption("options", ListValue, "logLevel", translate("Log Level"))
 o.default = "1"
-o:value("0", translate("slient"))
-o:value("1", translate("default"))
-o:value("2", translate("verbose"))
-o:value("3", translate("debug"))
+o:value("0", translate("Silent"))
+o:value("1", translate("Default"))
+o:value("2", translate("Verbose"))
+o:value("3", translate("Debug"))
 
 local apply = luci.http.formvalue("cbi.apply")
 if apply then
     io.popen("/etc/init.d/bearDropper restart")
 end
 
-o = s:taboption("blocked", Value, "blocked", translate("已屏蔽IP列表"))
+o = s:taboption("blocked", Value, "blocked", translate("Blocked IP List"))
 o.template="cbi/tvalue"
 --o.rows=100
 o.wrap="off"
