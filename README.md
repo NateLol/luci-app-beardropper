@@ -16,7 +16,7 @@ Written in shell scripts, so it shall work all good on all devices.
 
 Config
 ---
-The config file path is: `/etc/config/beardropper`  and this is the CUI configuration format.
+The config file path is: `/etc/config/beardropper`  and this is the uci configuration format.
 
 
 
