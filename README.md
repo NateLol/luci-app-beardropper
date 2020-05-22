@@ -64,5 +64,5 @@ Logs
 `2020-05-21` Added a new tab listing the blocked IPs.
 
 
- [preview]: https://github.com/chenhw2/luci-app-beardropper/tree/master/preview
+ [preview]: https://github.com/natelol/luci-app-beardropper/tree/master/preview
  [bearDropper]: https://github.com/robzr/bearDropper
