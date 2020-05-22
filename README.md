@@ -22,7 +22,7 @@ The config file path is: `/etc/config/beardropper`  and this is the CUI configur
 
 Compile
 ---
-You can use [natelol feeds][feeds]
+RECOMMENDED!!!! (推荐！！！)You can use [natelol feeds][feeds]
 
 
 OR
