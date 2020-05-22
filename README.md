@@ -22,6 +22,12 @@ The config file path is: `/etc/config/beardropper`  and this is the CUI configur
 
 Compile
 ---
+You can use [natelol feeds][feeds]
+
+
+OR
+
+
 0. Go under `openwrt/`
 
 1. Make your own local feeds, say a folder `mkdir yourfeeds`
@@ -42,9 +48,6 @@ make menuconfig
 # compile
 make package/feeds/luci-app-beardropper/compile V=99
 ```
-
-
-OR you can use [natelol feeds][feeds]
 
 Logs
 ---
