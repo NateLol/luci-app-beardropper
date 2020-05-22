@@ -51,6 +51,8 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) ./files/root/usr/sbin/bearDropper $(1)/usr/sbin
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_CONF) ./files/root/etc/config/bearDropper $(1)/etc/config
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
+	$(INSTALL_DATA) ./files/usr/share/rpcd/acl.d/*.json $(1)/usr/share/rpcd/acl.d
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
 	$(INSTALL_DATA) ./files/luasrc/controller/*.lua $(1)/usr/lib/lua/luci/controller
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi/bearDropper
