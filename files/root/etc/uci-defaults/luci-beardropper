@@ -1,9 +1,9 @@
 #!/bin/sh
 
-uci - batch <<-EOF >/dev/null
+uci -q batch <<-EOF >/dev/null
 	delete ucitrack.@beardropper[-1]
 	add ucitrack beardropper
-	set ucitrack.@beardropper[-1].init=beardropper
+	set ucitrack.@beardropper[-1].init=bearDropper
 	commit ucitrack
 EOF
 

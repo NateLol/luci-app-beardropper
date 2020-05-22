@@ -44,10 +44,10 @@ o:value("1", translate("Default"))
 o:value("2", translate("Verbose"))
 o:value("3", translate("Debug"))
 
-local apply = luci.http.formvalue("cbi.apply")
-if apply then
-    io.popen("/etc/init.d/bearDropper restart")
-end
+--local apply = luci.http.formvalue("cbi.apply")
+--if apply then
+--    io.popen("/etc/init.d/bearDropper restart")
+--end
 
 o = s:taboption("blocked", Value, "blocked", translate("Blocked IP List"))
 o.template="cbi/tvalue"
