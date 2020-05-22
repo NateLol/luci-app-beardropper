@@ -20,8 +20,7 @@ The config file path is: `/etc/config/beardropper`  and this is the CUI configur
 
 Compile
 ---
-0. Go under 'openwrt/'
-
+0. Go under `openwrt/`
 
 1. Make your own local feeds, say a folder `mkdir yourfeeds`
 
