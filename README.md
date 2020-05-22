@@ -38,6 +38,12 @@ luci-app-beardropper, a log examination script w/ iptables firewall rule generat
                             └── status.htm         // LuCI status
 ```
 
+
+Targets/Devices
+---
+Written in shell scripts, so it shall work seamlessly on all devices.
+
+
 Config
 ---
 The config file path is: `/etc/config/bearDropper`  and this is the CUI configuration format.
