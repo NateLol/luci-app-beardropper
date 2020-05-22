@@ -8,37 +8,7 @@ luci-app-beardropper, a log examination script w/ iptables firewall rule generat
  This is the LuCI app built for the elegant firewall rule generation on-the-fly script [bearDropepr][bearDropper], only a few modifications were made to work with Luci.
  
 
- Package file structure:
-
-```
-├── etc/
-│   ├── config/
-│   │   └── bearDropper                            // UCI config file
-│   │── init.d/
-│   │   └── bearDropper                            // init script
-│   └── uci-defaults/
-│       └── luci-beardropper                       // uci-defaults script
-└── usr/
-    ├── sbin/
-    │   └── ssr-rules                               // rule generation script
-    └── lib/
-        └── lua/
-            └── luci/                               // LuCI part
-                ├── controller/
-                │   └── bearDropper.lua             // LuCI Menu
-                ├── i18n/                           // LuCI language
-                │   └── bearDropper.zh-cn.lmo
-                └── model/
-                    ├── cbi/
-                    |   └── bearDropper/
-                    |       └── setting.lua         // LuCI setting
-                    |      
-                    └── view/
-                        └── bearDropper/
-                            └── status.htm         // LuCI status
-```
-
-
+ 
 Targets/Devices
 ---
 Written in shell scripts, so it shall work all good on all devices.
@@ -50,15 +20,20 @@ The config file path is: `/etc/config/bearDropper`  and this is the CUI configur
 
 Compile
 ---
+1. Make your own local feeds, say a folder `openwrt/yourfeeds`
+
+2. Clone master under feeds to have `openwrt/yourefeeds/luci-app-beardropper`
+
+3. Append  `src-link /path/to/openwrt/yourfeeds` `openwrt/feeds.conf(.default)`  
+
+4. Run following scripts under `openwrt`:
+
 ```bash
-cd OpenWrt
-# Clone 项目
-git clone https://github.com/natelol/luci-app-beardropper.git package/feeds/luci-app-beardropper
-# compile po2lmo (skip if already exists)
-pushd package/feeds/luci-app-beardropper/tools/po2lmo
-make && sudo make install
-popd
-# M select luci-app-beardropper in LuCI -> 3. Applications
+# Update feeds
+./scripts/feeds update -a
+./scripts/feeds install -a
+
+# M select luci-app-beardropper in LuCI -> 3. Applications also 2. Modules->Translations if you want translations together
 make menuconfig
 # compile
 make package/feeds/luci-app-beardropper/compile V=99
