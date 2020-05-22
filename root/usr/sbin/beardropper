@@ -1,6 +1,6 @@
 #!/bin/ash
 #
-# bearDropper - dropbear log parsing ban agent for OpenWRT (Chaos Calmer rewrite of dropBrute.sh)
+# beardropper - dropbear log parsing ban agent for OpenWRT (Chaos Calmer rewrite of dropBrute.sh)
 #   http://github.com/robzr/bearDropper  -- Rob Zwissler 11/2015
 # 
 #   - lightweight, no dependencies, busybox ash + native OpenWRT commands
