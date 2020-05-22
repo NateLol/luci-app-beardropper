@@ -1,11 +1,11 @@
-config bearDropper
+config beardropper
 	option attemptCount '5'
 	option attemptPeriod '12h'
 	option banLength '1w'
 	option logFacility 'authpriv.notice'
 	option fileStateType 'bddb'
-	option fileStateTempPrefix '/tmp/bearDropper'
-	option fileStatePersistPrefix '/etc/bearDropper'
+	option fileStateTempPrefix '/tmp/beardropper'
+	option fileStatePersistPrefix '/etc/beardropper'
 	list firewallHookChain 'input_wan_rule:1'
 	list firewallHookChain 'forwarding_wan_rule:1'
 	option firewallTarget 'DROP'

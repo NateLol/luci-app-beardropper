@@ -24,7 +24,7 @@
 
 # Load UCI config variable, or use default if not set
 # Args: $1 = variable name (also uci option name), $2 = default_value
-uciSection='bearDropper.@[0]'
+uciSection='beardropper.@[0]'
 uciLoadVar () { 
   local getUci
   getUci=`uci -q get ${uciSection}."$1"` || getUci="$2" 
@@ -43,7 +43,7 @@ uciLoad() {
   rm -f $tFile
 }
 
-# Common config variables - edit these in /etc/config/bearDropper
+# Common config variables - edit these in /etc/config/beardropper
 # or they can be overridden at runtime with command line options
 #
 uciLoadVar defaultMode entire
@@ -55,19 +55,19 @@ uciLoadVar logLevel 1
 uciLoadVar logFacility authpriv.notice
 uciLoadVar persistentStateWritePeriod -1
 uciLoadVar fileStateType bddb
-uciLoadVar fileStateTempPrefix /tmp/bearDropper
-uciLoadVar fileStatePersistPrefix /etc/bearDropper
+uciLoadVar fileStateTempPrefix /tmp/beardropper
+uciLoadVar fileStatePersistPrefix /etc/beardropper
 firewallHookChains="`uciLoad -d \  firewallHookChain input_wan_rule:1 forwarding_wan_rule:1`"
 uciLoadVar firewallTarget DROP
 
 # Not commonly changed, but changeable via uci or cmdline (primarily 
 # to enable multiple parallel runs with different parameters)
-uciLoadVar firewallChain bearDropper
+uciLoadVar firewallChain beardropper
 
 # Advanced variables, changeable via uci only (no cmdline), it is 
 # unlikely that these will need to be changed, but just in case...
 #
-uciLoadVar syslogTag "bearDropper[$$]"
+uciLoadVar syslogTag "beardropper[$$]"
 # how often to attempt to expire bans when in follow mode
 uciLoadVar followModeCheckInterval 30m	
 uciLoadVar cmdLogread 'logread'		# for tuning, ex: "logread -l250"
@@ -365,7 +365,7 @@ loadState () {
 
 printUsage () {
   cat <<-_EOF_
-	Usage: bearDropper [-m mode] [-a #] [-b #] [-c ...] [-C ...] [-f ...] [-l #] [-j ...] [-p #] [-P #] [-s ...]
+	Usage: beardropper [-m mode] [-a #] [-b #] [-c ...] [-C ...] [-f ...] [-l #] [-j ...] [-p #] [-P #] [-s ...]
 
 	  Running Modes (-m) (def: $defaultMode)
 	    follow     constantly monitors log
@@ -427,7 +427,7 @@ followModeCheckInterval=`expandBindTime $followModeCheckInterval`
 exitStatus=0
 
 # Here we convert the logRegex list into a sed -f file
-fileRegex="/tmp/bearDropper.$$.regex"
+fileRegex="/tmp/beardropper.$$.regex"
 uciLoad logRegex 's/[`$"'\\\'']//g' '/has invalid shell, rejected$/d' \
   '/^[A-Za-z ]+[0-9: ]+authpriv.warn dropbear\[.+([0-9]+\.){3}[0-9]+/p' \
   '/^[A-Za-z ]+[0-9: ]+authpriv.info dropbear\[.+:\ Exit before auth:.*/p' > "$fileRegex"
@@ -439,7 +439,7 @@ bddbCheckStatusAll
 
 if [ "$logMode" = follow ] ; then 
   logLine 1 "Running in follow mode"
-  readsSinceSave=0 lastCheckAll=0 worstCaseReads=1 tmpFile="/tmp/bearDropper.$$.1"
+  readsSinceSave=0 lastCheckAll=0 worstCaseReads=1 tmpFile="/tmp/beardropper.$$.1"
 # Verify if these do any good - try saving to a temp.  Scope may make saveState useless.
   trap "rm -f "$tmpFile" "$fileRegex" ; exit " SIGINT
   [ $persistentStateWritePeriod -gt 1 ] && worstCaseReads=$((persistentStateWritePeriod / followModeCheckInterval))

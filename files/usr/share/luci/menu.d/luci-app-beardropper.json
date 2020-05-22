@@ -1,12 +1,12 @@
 {
-	"admin/services/bearDropper": {
-		"title": "bearDropper",
+	"admin/services/beardropper": {
+		"title": "beardropper",
 		"action": {
 			"type": "view",
-			"path": "bearDropper"
+			"path": "beardropper"
 		},
 		"depends": {
-			"acl": [ "luci-app-bearDropper" ]
+			"acl": [ "luci-app-beardropper" ]
 		}
 	}
 }

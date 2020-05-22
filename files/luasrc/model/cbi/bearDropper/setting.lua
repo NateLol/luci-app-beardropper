@@ -4,14 +4,14 @@ require("luci.tools.webadmin")
 --require("luci.fs")
 require("luci.config")
 
-m = Map("bearDropper", translate("BearDropper"), 
+m = Map("beardropper", translate("BearDropper"), 
 translate("luci-app-beardropper, the LuCI app built with the elegant firewall rule generation on-the-fly script bearDropper. <br /> <br /> Should you have any questions, please refer to the repo: ")..[[<a href="https://github.com/NateLol/luci-app-bearDropper" target="_blank">luci-app-beardropper</a>]]
 )
 m:chain("luci")
 
-m:section(SimpleSection).template="bearDropper/status"
+m:section(SimpleSection).template="beardropper/status"
 
-s = m:section(TypedSection, "bearDropper", translate(""))
+s = m:section(TypedSection, "beardropper", translate(""))
 s.anonymous = true
 s.addremove = false
 
@@ -55,7 +55,7 @@ o.template="cbi/tvalue"
 o.wrap="off"
 o.readonly="true"
 function o.cfgvalue(e, e)
-	return luci.sys.exec("cat /tmp/bearDropper.bddb | awk /'=1/'| awk -F '=' '{print $1}' | awk '{print substr($0,6)}' | awk 'gsub(/_/,\":\",$0)'")
+	return luci.sys.exec("cat /tmp/beardropper.bddb | awk /'=1/'| awk -F '=' '{print $1}' | awk '{print substr($0,6)}' | awk 'gsub(/_/,\":\",$0)'")
 end
 
 

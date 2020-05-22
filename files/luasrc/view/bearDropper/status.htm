@@ -1,7 +1,7 @@
 <script type="text/javascript">//<![CDATA[
-XHR.poll(3, '<%=url([[admin]], [[services]], [[bearDropper]], [[status]])%>', null,
+XHR.poll(3, '<%=url([[admin]], [[services]], [[beardropper]], [[status]])%>', null,
 	function(x, data) {
-		var tb = document.getElementById('bearDropper_status');
+		var tb = document.getElementById('beardropper_status');
 		if (data && tb) {
 			if (data.running) {
 				var links = '<em><b><font color=green>BearDropper <%:RUNNING%></font></b></em>';
@@ -16,7 +16,7 @@ XHR.poll(3, '<%=url([[admin]], [[services]], [[bearDropper]], [[status]])%>', nu
 </script>
 <style>.mar-10 {margin-left: 50px; margin-right: 10px;}</style>
 <fieldset class="cbi-section">
-	<p id="bearDropper_status">
+	<p id="beardropper_status">
 		<em><%:Collecting data...%></em>
 	</p>
 </fieldset>
