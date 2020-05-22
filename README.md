@@ -54,7 +54,7 @@ make && sudo make install
 popd
 # M select luci-app-beardropper in LuCI -> 3. Applications
 make menuconfig
-# 开始编译
+# compile
 make package/feeds/luci-app-beardropper/compile V=99
 ```
 
