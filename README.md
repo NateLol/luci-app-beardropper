@@ -16,15 +16,18 @@ Written in shell scripts, so it shall work all good on all devices.
 
 Config
 ---
-The config file path is: `/etc/config/bearDropper`  and this is the CUI configuration format.
+The config file path is: `/etc/config/beardropper`  and this is the CUI configuration format.
 
 Compile
 ---
-1. Make your own local feeds, say a folder `openwrt/yourfeeds`
+0. Go under 'openwrt/'
 
-2. Clone master under feeds to have `openwrt/yourefeeds/luci-app-beardropper`
 
-3. Append  `src-link /path/to/openwrt/yourfeeds` `openwrt/feeds.conf(.default)`  
+1. Make your own local feeds, say a folder `mkdir yourfeeds`
+
+2. Clone master under feeds to have `git clone https://github.com/natelol/luci-app-beardropper yourefeeds/luci-app-beardropper`
+
+3. Append  `src-link yourfeeds /path/to/openwrt/yourfeeds` in the file `openwrt/feeds.conf(.default)`  
 
 4. Run following scripts under `openwrt`:
 
