@@ -8,11 +8,15 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_Title:=LuCI Support for BearDropper
-LUCI_DEPENDS:=
 LUCI_PKGARCH=all
 
+PKG_VERSION:=1.1
+PKG_RELEASE:=20200522
+
 PKG_MAINTANINER:=Nate Ding <natelol@github.com>
-PKG_LICENSE:=GLPv3.0
+PKG_LICENSE:=GLPv3
+PKG_LICENSE_FILES:=LICENSE
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
+# call BuildPackage - OpenWrt buildroot signature
