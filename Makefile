@@ -14,5 +14,5 @@ LUCI_PKGARCH=all
 PKG_MAINTANINER:=Nate Ding <natelol@github.com>
 PKG_LICENSE:=GLPv3.0
 
-include ../../luci.mk
+include $(TOPDIR)/feeds/luci/luci.mk
 
