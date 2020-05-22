@@ -41,7 +41,7 @@ luci-app-beardropper, a log examination script w/ iptables firewall rule generat
 
 Targets/Devices
 ---
-Written in shell scripts, so it shall work seamlessly on all devices.
+Written in shell scripts, so it shall work all good on all devices.
 
 
 Config
