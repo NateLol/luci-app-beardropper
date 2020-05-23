@@ -2,6 +2,13 @@ bearDropper#: ../../package/feeds/luci/luci-app-beardropper/luasrc/model/cbi/bea
 msgid "Attempt Cycle"
 msgstr "尝试登录时间段"
 
+
+msgid "Setting"
+msgstr "设置"
+
+msgid "Log"
+msgstr "日志"
+
 #: ../../package/feeds/luci/luci-app-beardropper/luasrc/model/cbi/bearDropper/setting.lua:34
 msgid "Attempt Tolerance"
 msgstr "最大尝试登录次数"
