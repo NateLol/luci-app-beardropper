@@ -27,12 +27,14 @@ luci-app-beardropper, a log examination script w/ iptables firewall rule generat
                 ├── controller/
                 │   └── bearDropper.lua             // LuCI Menu
                 ├── i18n/                           // LuCI language
-                │   └── bearDropper.zh-cn.lmo
+                │   ├── bearDropper.zh-tw.po
+                │   └── bearDropper.zh-cn.po
                 └── model/
                     ├── cbi/
-                    |   └── bearDropper/
-                    |       └── setting.lua         // LuCI setting
-                    |      
+                    │   └── bearDropper/
+                    │       ├── log.lua             // LuCI log
+                    │       └── setting.lua         // LuCI setting
+                    │     
                     └── view/
                         └── bearDropper/
                             └── status.htm         // LuCI status
@@ -46,13 +48,13 @@ Written in shell scripts, so it shall work all good on all devices.
 
 Config
 ---
-The config file path is: `/etc/config/bearDropper`  and this is the CUI configuration format.
+The config file path is: `/etc/config/bearDropper`  and this is the uci configuration format.
 
 Compile
 ---
 ```bash
 cd OpenWrt
-# Clone 项目
+# clone repo
 git clone https://github.com/natelol/luci-app-beardropper.git package/feeds/luci-app-beardropper
 # compile po2lmo (skip if already exists)
 pushd package/feeds/luci-app-beardropper/tools/po2lmo
