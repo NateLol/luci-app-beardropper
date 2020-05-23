@@ -5,7 +5,7 @@ luci-app-beardropper
 ---
 luci-app-beardropper, a log examination script w/ iptables firewall rule generation response.
  
- This is the LuCI app built for the elegant firewall rule generation on-the-fly script [bearDropepr][bearDropper], only a few modifications were made to work with Luci.
+ This is the LuCI app built for the elegant firewall rule generation on-the-fly script [bearDropper][bearDropper], only a few modifications were made to work with Luci.
  
 
  
