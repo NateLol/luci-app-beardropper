@@ -4,10 +4,10 @@ function index()
     if not nixio.fs.access("/etc/config/beardropper") then
 	return
     end
-    entry({"admin", "services", "beardropper"}, alias("admin", "services", "beardropper", "setting"),_("BearDropper"), 30).dependent = true
-    entry({"admin", "services", "beardropper", "status"}, call("act_status")).leaf= true
-    entry({"admin", "services", "beardropper", "setting"}, cbi("beardropper/setting"), _("Setting"), 1)
-    entry({"admin", "services", "beardropper", "log"}, form("beardropper/log"),_("Log"),2)
+    entry({"admin", "services", "beardropper"}, alias("admin", "services", "beardropper", "setting"),_("BearDropper"), 20).dependent = true
+    entry({"admin", "services", "beardropper", "status"}, call("act_status"))
+    entry({"admin", "services", "beardropper", "setting"}, cbi("beardropper/setting"), _("Setting"), 30).leaf= true
+    entry({"admin", "services", "beardropper", "log"}, form("beardropper/log"),_("Log"),40).leaf= true
     --entry:
 end
 
