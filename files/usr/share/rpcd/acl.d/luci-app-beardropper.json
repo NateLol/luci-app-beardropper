@@ -2,10 +2,10 @@
 	"luci-app-beardropper": {
 	"description": "Grant UCI access for luci-app-beardropper",
 	"read": {
-		"uci": [ "bearDropper" ]
+		"uci": [ "beardropper" ]
 		},
 	"write": {
-		"uci": [ "bearDropper" ]
+		"uci": [ "beardropper" ]
 		}
 	}
 }
