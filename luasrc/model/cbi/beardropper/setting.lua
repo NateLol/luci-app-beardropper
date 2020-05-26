@@ -1,8 +1,3 @@
-require("luci.sys")
-require("luci.sys.zoneinfo")
-require("luci.tools.webadmin")
---require("luci.fs")
-require("luci.config")
 
 m = Map("beardropper", translate("BearDropper"), 
 translate("luci-app-beardropper, the LuCI app built with the elegant firewall rule generation on-the-fly script bearDropper. <br /> <br /> Should you have any questions, please refer to the repo: ")..[[<a href="https://github.com/NateLol/luci-app-bearDropper" target="_blank">luci-app-beardropper</a>]]
@@ -47,7 +42,7 @@ o:value("3", translate("Debug"))
 
 o = s:taboption("blocked", Value, "blocked", translate("Blocked IP List"))
 o.template="cbi/tvalue"
---o.rows=100
+o.rows=40
 o.wrap="off"
 o.readonly="true"
 function o.cfgvalue(e, e)
