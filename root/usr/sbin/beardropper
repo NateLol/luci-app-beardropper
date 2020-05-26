@@ -183,7 +183,7 @@ logLine () {
   shift
   if [ "$logFacility" = "stdout" ] ; then echo "$@"
   elif [ "$logFacility" = "stderr" ] ; then echo "$@" >&2
-  else logger -t "$syslogTag" -p "$logFacility" "$@"
+  else logger -t "$syslogTag" -p "$logFacility" "$@" && logread |grep beardropper | awk 'END{print}' | tee  >> /tmp/beardropper.log
   fi
 }
 
