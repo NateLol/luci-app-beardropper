@@ -62,6 +62,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
 	$(INSTALL_BIN) ./files/root/etc/uci-defaults/luci-beardropper $(1)/etc/uci-defaults/
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
+	$(MV) $(PKG_BUILD_DIR)/beardropper.zh_Hans.lmo $(PKG_BUILD_DIR)/beardropper.zh-cn.lmo
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/beardropper.*.lmo $(1)/usr/lib/lua/luci/i18n	
 endef
 
